@@ -1,8 +1,9 @@
 services:
-  # Redis comme service (PAS de clé top-level "redis")
+  # Redis comme service avec IP Allow List
   - type: redis
     name: aquiles-redis
     plan: free
+    ipAllowList: []  # Liste vide = accessible par tous les services Render du même Blueprint
 
   # Web FastAPI
   - type: web
