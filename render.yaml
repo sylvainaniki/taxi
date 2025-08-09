@@ -1,4 +1,10 @@
 services:
+  # Redis comme service (PAS de clé top-level "redis")
+  - type: redis
+    name: aquiles-redis
+    plan: free
+
+  # Web FastAPI
   - type: web
     name: aquiles-backend
     env: python
@@ -37,9 +43,7 @@ services:
           property: connectionString
       - key: OSRM_URL
         value: http://osrm:5000
+
 databases:
   - name: aquiles-postgres
-    plan: free
-redis:
-  - name: aquiles-redis
     plan: free
